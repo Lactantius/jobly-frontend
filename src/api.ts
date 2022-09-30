@@ -2,6 +2,10 @@ import axios from "axios";
 
 const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
 
+interface GetCompaniesResponse {
+  companies: Company[];
+}
+
 /** API Class.
  *
  * Static class tying together methods used to get/send to to the API.
@@ -31,7 +35,7 @@ class JoblyApi {
       return (await axios({ url, method, data, params, headers })).data;
     } catch (err: any) {
       console.error("API Error:", err.response);
-      let message = err.response.data.error.message;
+      const message = err.response.data.error.message;
       throw Array.isArray(message) ? message : [message];
     }
   }
@@ -41,11 +45,21 @@ class JoblyApi {
   /** Get details on a company by handle. */
 
   static async getCompany(handle: string): Promise<any> {
-    let res = await this.request(`companies/${handle}`);
+    const res = await this.request(`companies/${handle}`);
     return res.company;
   }
 
-  // obviously, you'll add a lot here ...
+  // static async getAllCompanies(): Promise<any> {
+  //   const res = await this.request(`companies`);
+  //   return res.companies;
+  // }
+
+  static async getAllCompanies(): Promise<Company[]> {
+    const { data } = await axios.get<GetCompaniesResponse>(
+      `${BASE_URL}/companies`
+    );
+    return data.companies;
+  }
 }
 
 // for now, put token ("testuser" / "password" on class)
@@ -53,3 +67,5 @@ JoblyApi.token =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZ" +
   "SI6InRlc3R1c2VyIiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTU5ODE1OTI1OX0." +
   "FtrMwBQwe6Ue-glIFgz_Nf8XxRT2YecFCiSpYL0fCXc";
+
+export default JoblyApi;

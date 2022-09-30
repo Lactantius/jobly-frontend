@@ -1,6 +1,10 @@
 import React from "react";
 
-function JobCard({ id }: Job): JSX.Element {
+interface JobProps {
+  job: Job;
+}
+
+function JobCard({ job }: JobProps): JSX.Element {
   return <div></div>;
 }
 

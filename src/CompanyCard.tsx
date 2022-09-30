@@ -1,7 +1,19 @@
 import React from "react";
 
-function CompanyCard({ handle }: Company): JSX.Element {
-  return <div></div>;
+interface CompanyProps {
+  company: Company;
+}
+
+function CompanyCard({ company }: CompanyProps): JSX.Element {
+  return (
+    <div className="CompanyCard">
+      <a href={`/companies/${company.handle}`}>
+        <h3>{company.name}</h3>
+      </a>
+      <p>{company.description}</p>
+      <p>Employees: {company.numEmployees}</p>
+    </div>
+  );
 }
 
 export default CompanyCard;
