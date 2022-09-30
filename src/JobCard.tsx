@@ -5,7 +5,14 @@ interface JobProps {
 }
 
 function JobCard({ job }: JobProps): JSX.Element {
-  return <div></div>;
+  return (
+    <div className="JobCard">
+      <h3>{job.title}</h3>
+      <p>
+        Salary: {job.salary}; Equity: {job.equity}
+      </p>
+    </div>
+  );
 }
 
 export default JobCard;

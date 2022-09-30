@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import JoblyApi from "./api";
 
 import JobCard from "./JobCard";
+import JobList from "./JobList";
 
 function Company(): JSX.Element {
   const { handle } = useParams();
@@ -19,12 +20,14 @@ function Company(): JSX.Element {
 
   if (!company) return <h2>Loading...</h2>;
 
+  console.debug("Company", "company=", company);
   return (
     <div className="Company">
       <h2>{company.name}</h2>
       <p>{company.description}</p>
       <p>Employees: {company.numEmployees}</p>
       <h3>Jobs:</h3>
+      <JobList jobs={company.jobs} />
     </div>
   );
 }
