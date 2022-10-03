@@ -23,7 +23,7 @@ function CompanySearch({ setFilters }: CompanySearchProps): JSX.Element {
 
   return (
     <form className="CompanySearch" onSubmit={handleSubmit}>
-      <label htmlFor="text">Name</label>
+      <label htmlFor="name">Name</label>
       <input type="text" id="name" name="name" onChange={handleChange} />
       <label htmlFor="minEmployees">Minimum Employees</label>
       <input
