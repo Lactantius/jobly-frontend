@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 
 import JoblyApi from "./api";
 
-import JobList from "./JobList";
+import JobCard from "./JobCard";
 
 function Company(): JSX.Element {
   const { handle } = useParams();
@@ -27,7 +27,9 @@ function Company(): JSX.Element {
         <p>{company.description}</p>
         <p>Employees: {company.numEmployees}</p>
         <h3>Jobs:</h3>
-        <JobList jobs={company.jobs} />
+        {company.jobs.map((job) => (
+          <JobCard job={job} />
+        ))}
       </div>
     </React.StrictMode>
   );

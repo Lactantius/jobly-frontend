@@ -15,8 +15,6 @@ function CompanyList(): JSX.Element {
     );
   }, [filters]);
 
-  console.log(companies);
-
   return (
     <div className="CompanyList">
       <>
