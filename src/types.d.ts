@@ -26,9 +26,3 @@ interface Job {
 interface JobDetail extends Job {
   company: Company;
 }
-
-interface JobFilters {
-  title: string;
-  minSalary: number;
-  hasEquity: boolean;
-}

@@ -19,7 +19,7 @@ function CompanyList(): JSX.Element {
     <div className="CompanyList">
       <>
         <CompanySearch setFilters={setFilters} />
-        <h2>{companies.length} Companies</h2>
+        <h2>All Companies</h2>
         {companies.map((company) => {
           return <CompanyCard key={company.handle} company={company} />;
         })}
