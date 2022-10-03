@@ -6,6 +6,10 @@ interface GetCompaniesResponse {
   companies: Company[];
 }
 
+interface GetJobsResponse {
+  jobs: Job[];
+}
+
 /** API Class.
  *
  * Static class tying together methods used to get/send to to the API.
@@ -60,6 +64,13 @@ class JoblyApi {
       { params: filters }
     );
     return data.companies;
+  }
+
+  static async getAllJobs(filters: JobFilters): Promise<Job[]> {
+    const { data } = await axios.get<GetJobsResponse>(`${BASE_URL}/jobs`, {
+      params: filters,
+    });
+    return data.jobs;
   }
 }
 
