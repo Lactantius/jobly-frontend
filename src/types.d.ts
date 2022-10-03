@@ -32,3 +32,11 @@ interface JobFilters {
   minSalary: number;
   hasEquity: boolean;
 }
+
+interface User {
+  username: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  isAdmin: boolean;
+}

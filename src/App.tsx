@@ -10,7 +10,7 @@ import Router from "./Router";
 import JoblyApi from "./api";
 
 function App(): JSX.Element {
-  const [token, setToken] = useLocalStorage("token", "");
+  const [token, setToken] = useLocalStorage("token", {});
 
   const login = async (username: string, password: string) => {
     const authToken = await JoblyApi.login(username, password);
@@ -36,11 +36,11 @@ function App(): JSX.Element {
 
   const logout = () => setToken({});
 
-  const user = (token) => jwt.decode(token);
+  const getUser = () => jwt.decode(token);
 
   return (
     <BrowserRouter>
-      <NavBar user={user} />
+      <NavBar user={getUser()} />
       <Router />
     </BrowserRouter>
   );
