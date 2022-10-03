@@ -10,6 +10,10 @@ interface GetJobsResponse {
   jobs: Job[];
 }
 
+interface TokenResponse {
+  token: string;
+}
+
 /** API Class.
  *
  * Static class tying together methods used to get/send to to the API.
@@ -71,6 +75,29 @@ class JoblyApi {
       params: filters,
     });
     return data.jobs;
+  }
+
+  static async login(
+    username: string,
+    password: string
+  ): Promise<TokenResponse> {
+    const { data } = await axios.post(`${BASE_URL}/auth`, {
+      data: { username, password },
+    });
+    return data.token;
+  }
+
+  static async register(
+    username: string,
+    password: string,
+    firstName: string,
+    lastName: string,
+    email: string
+  ): Promise<TokenResponse> {
+    const { data } = await axios.post(`${BASE_URL}/auth`, {
+      data: { username, password, firstName, lastName, email },
+    });
+    return data.token;
   }
 }
 
