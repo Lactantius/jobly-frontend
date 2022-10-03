@@ -10,6 +10,12 @@ interface CompanyDetail extends Company {
   jobs: Job[];
 }
 
+interface CompanyFilters {
+  name: string;
+  minEmployees: number;
+  maxEmployees: number;
+}
+
 interface Job {
   id: number;
   title: string;

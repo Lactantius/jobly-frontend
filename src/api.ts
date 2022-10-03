@@ -54,9 +54,10 @@ class JoblyApi {
   //   return res.companies;
   // }
 
-  static async getAllCompanies(): Promise<Company[]> {
+  static async getAllCompanies(filters: CompanyFilters): Promise<Company[]> {
     const { data } = await axios.get<GetCompaniesResponse>(
-      `${BASE_URL}/companies`
+      `${BASE_URL}/companies`,
+      { params: filters }
     );
     return data.companies;
   }

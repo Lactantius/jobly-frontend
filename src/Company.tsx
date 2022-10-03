@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 
 import JoblyApi from "./api";
 
-import JobCard from "./JobCard";
 import JobList from "./JobList";
 
 function Company(): JSX.Element {
@@ -18,17 +17,19 @@ function Company(): JSX.Element {
     });
   }, [handle]);
 
-  if (!company) return <h2>Loading...</h2>;
+  if (Object.keys(company).length === 0) return <h2>Loading...</h2>;
 
   console.debug("Company", "company=", company);
   return (
-    <div className="Company">
-      <h2>{company.name}</h2>
-      <p>{company.description}</p>
-      <p>Employees: {company.numEmployees}</p>
-      <h3>Jobs:</h3>
-      <JobList jobs={company.jobs} />
-    </div>
+    <React.StrictMode>
+      <div className="Company">
+        <h2>{company.name}</h2>
+        <p>{company.description}</p>
+        <p>Employees: {company.numEmployees}</p>
+        <h3>Jobs:</h3>
+        <JobList jobs={company.jobs} />
+      </div>
+    </React.StrictMode>
   );
 }
 
