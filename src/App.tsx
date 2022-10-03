@@ -8,7 +8,7 @@ import "./App.css";
 import Router from "./Router";
 
 function App(): JSX.Element {
-  const [token, getToken] = useLocalStorage("");
+  const [token, getToken] = useLocalStorage("_token", "");
 
   return (
     <BrowserRouter>

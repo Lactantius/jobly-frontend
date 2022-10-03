@@ -4,6 +4,8 @@ interface CompanySearchProps {
   setFilters: Function;
 }
 
+type FilterKeys = "name" | "minEmployees" | "maxEmployees";
+
 function CompanySearch({ setFilters }: CompanySearchProps): JSX.Element {
   const [formData, setFormData] = useState({} as CompanyFilters);
 
@@ -13,7 +15,9 @@ function CompanySearch({ setFilters }: CompanySearchProps): JSX.Element {
   };
 
   const handleChange = (e: React.ChangeEvent) => {
-    const { name, value } = e.target as HTMLInputElement;
+    const target = e.target as HTMLInputElement;
+    const name = target.name as FilterKeys;
+    const value = target.value;
     setFormData((fData) => {
       fData = { ...fData, [name]: value };
       if (!fData[name]) delete fData[name];

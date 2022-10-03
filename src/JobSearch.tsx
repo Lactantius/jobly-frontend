@@ -4,6 +4,8 @@ interface JobSearchProps {
   setFilters: Function;
 }
 
+type FilterKeys = "title" | "minSalary" | "hasEquity";
+
 function JobSearch({ setFilters }: JobSearchProps): JSX.Element {
   const [formData, setFormData] = useState({} as JobFilters);
   const [isChecked, setIsChecked] = useState(false);
@@ -14,7 +16,9 @@ function JobSearch({ setFilters }: JobSearchProps): JSX.Element {
   };
 
   const handleChange = (e: React.ChangeEvent) => {
-    const { name, value } = e.target as HTMLInputElement;
+    const target = e.target as HTMLInputElement;
+    const name = target.name as FilterKeys;
+    const value = target.value;
     if (name === "hasEquity") {
       setIsChecked((isChecked) => !isChecked);
     }
