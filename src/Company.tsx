@@ -5,7 +5,11 @@ import JoblyApi from "./api";
 
 import JobCard from "./JobCard";
 
-function Company(): JSX.Element {
+interface CompanyProps {
+  user: User | null;
+}
+
+function Company({ user }: CompanyProps): JSX.Element {
   const { handle } = useParams();
 
   const [company, setCompany] = useState({} as CompanyDetail);

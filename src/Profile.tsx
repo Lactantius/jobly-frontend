@@ -1,6 +1,10 @@
 import React from "react";
 
-function Profile(): JSX.Element {
+interface ProfileProps {
+  user: User | null;
+}
+
+function Profile({ user }: ProfileProps): JSX.Element {
   return <div></div>;
 }
 

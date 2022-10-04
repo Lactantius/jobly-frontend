@@ -1,6 +1,11 @@
 import React from "react";
 
-function Login(): JSX.Element {
+interface LoginProps {
+  user: User | null;
+  login: Function;
+}
+
+function Login({ user, login }: LoginProps): JSX.Element {
   return <div></div>;
 }
 

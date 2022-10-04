@@ -4,7 +4,11 @@ import JobCard from "./JobCard";
 import JoblyApi from "./api";
 import JobSearch from "./JobSearch";
 
-function JobList(): JSX.Element {
+interface JobProps {
+  user: User | null;
+}
+
+function JobList({ user }: JobProps): JSX.Element {
   const [jobs, setJobs] = useState(Array<Job>);
   const [filters, setFilters] = useState({} as JobFilters);
 

@@ -87,16 +87,22 @@ class JoblyApi {
     return data.token;
   }
 
-  static async register(
-    username: string,
-    password: string,
-    firstName: string,
-    lastName: string,
-    email: string
-  ): Promise<TokenResponse> {
-    const { data } = await axios.post(`${BASE_URL}/auth`, {
-      data: { username, password, firstName, lastName, email },
+  static async register({
+    username,
+    password,
+    firstName,
+    lastName,
+    email,
+  }: SignupFormVals): Promise<TokenResponse> {
+    console.log(username, password, firstName, lastName, email);
+    const { data } = await axios.post(`${BASE_URL}/auth/register`, {
+      username,
+      password,
+      firstName,
+      lastName,
+      email,
     });
+    console.log(data);
     return data.token;
   }
 }

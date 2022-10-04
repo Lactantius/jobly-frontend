@@ -5,7 +5,11 @@ import CompanyCard from "./CompanyCard";
 import JoblyApi from "./api";
 import CompanySearch from "./CompanySearch";
 
-function CompanyList(): JSX.Element {
+interface CompanyListProps {
+  user: User | null;
+}
+
+function CompanyList({ user }: CompanyListProps): JSX.Element {
   const [companies, setCompanies] = useState(Array<Company>);
   const [filters, setFilters] = useState({} as CompanyFilters);
 

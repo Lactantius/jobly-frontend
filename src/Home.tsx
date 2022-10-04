@@ -1,6 +1,10 @@
 import React from "react";
 
-function Home(): JSX.Element {
+interface HomeProps {
+  user: User | null;
+}
+
+function Home({ user }: HomeProps): JSX.Element {
   return <div></div>;
 }
 
