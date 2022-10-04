@@ -1,11 +1,12 @@
-import React from "react";
+import React, { MouseEventHandler, ReactEventHandler } from "react";
 import { NavLink } from "react-router-dom";
 
 interface NavBarProps {
   user: UserToken | null;
+  logout: Function;
 }
 
-function NavBar({ user }: NavBarProps): JSX.Element {
+function NavBar({ user, logout }: NavBarProps): JSX.Element {
   return (
     <nav className="NavBar">
       <NavLink to="/">Jobly</NavLink>
@@ -14,7 +15,9 @@ function NavBar({ user }: NavBarProps): JSX.Element {
       {user ? (
         <>
           <NavLink to="/profile">Profile</NavLink>
-          <NavLink to="/logout">Logout {user.username}</NavLink>
+          <NavLink to="/" onClick={(e: React.MouseEvent) => logout()}>
+            Logout {user.username}
+          </NavLink>
         </>
       ) : (
         <>

@@ -40,7 +40,7 @@ function App(): JSX.Element {
 
   return (
     <BrowserRouter>
-      <NavBar user={getUser()} />
+      <NavBar user={getUser()} logout={logout} />
       <Router login={login} register={register} user={getUser()} />
     </BrowserRouter>
   );
