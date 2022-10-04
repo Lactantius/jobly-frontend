@@ -2,7 +2,7 @@ import React from "react";
 import { Navigate } from "react-router-dom";
 
 interface ProfileProps {
-  user: UserToken | null;
+  user: User | null;
 }
 
 function Profile({ user }: ProfileProps): JSX.Element {

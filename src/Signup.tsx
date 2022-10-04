@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 
 interface SignupProps {
-  user: UserToken | null;
+  user: User | null;
   register: Function;
 }
 

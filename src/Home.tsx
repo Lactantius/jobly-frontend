@@ -2,14 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 interface HomeProps {
-  user: UserToken | null;
+  user: User | null;
 }
 
 function Home({ user }: HomeProps): JSX.Element {
   if (user) {
     return (
       <div className="Home">
-        <p>Welcome back, {user.username}</p>
+        <p>Welcome back, {user.firstName || user.username}</p>
       </div>
     );
   }

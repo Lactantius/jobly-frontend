@@ -60,3 +60,8 @@ interface LoginFormVals {
   username: string;
   password: string;
 }
+
+interface UserCredentials {
+  username: string;
+  token: string;
+}

@@ -23,7 +23,7 @@ interface TokenResponse {
  */
 
 class JoblyApi {
-  // the token for interactive with the API will be stored here.
+  // the token for interaction with the API will be stored here.
   static token: string;
 
   static async request(
@@ -85,7 +85,6 @@ class JoblyApi {
       username,
       password,
     });
-    console.log(data);
     return data;
   }
 
@@ -96,7 +95,6 @@ class JoblyApi {
     lastName,
     email,
   }: SignupFormVals): Promise<TokenResponse> {
-    console.log(username, password, firstName, lastName, email);
     const { data } = await axios.post(`${BASE_URL}/auth/register`, {
       username,
       password,
@@ -104,8 +102,17 @@ class JoblyApi {
       lastName,
       email,
     });
-    console.log(data);
     return data;
+  }
+
+  static async getUserInfo({
+    username,
+    token,
+  }: UserCredentials): Promise<User> {
+    const { data } = await axios.get(`${BASE_URL}/users/${username}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    return data.user;
   }
 }
 

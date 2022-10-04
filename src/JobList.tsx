@@ -6,7 +6,7 @@ import JobSearch from "./JobSearch";
 import { Navigate } from "react-router-dom";
 
 interface JobProps {
-  user: UserToken | null;
+  user: User | null;
 }
 
 function JobList({ user }: JobProps): JSX.Element {
