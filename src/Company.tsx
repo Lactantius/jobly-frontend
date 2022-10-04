@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 
 import JoblyApi from "./api";
 
@@ -22,6 +22,8 @@ function Company({ user }: CompanyProps): JSX.Element {
   }, [handle]);
 
   if (Object.keys(company).length === 0) return <h2>Loading...</h2>;
+
+  if (!user) return <Navigate to="/" />;
 
   console.debug("Company", "company=", company);
   return (

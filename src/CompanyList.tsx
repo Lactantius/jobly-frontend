@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Navigate } from "react-router-dom";
 
 import CompanyCard from "./CompanyCard";
 
@@ -18,6 +19,8 @@ function CompanyList({ user }: CompanyListProps): JSX.Element {
       setCompanies(comps)
     );
   }, [filters]);
+
+  if (!user) return <Navigate to="/" />;
 
   return (
     <div className="CompanyList">

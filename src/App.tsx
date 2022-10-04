@@ -9,7 +9,6 @@ import Router from "./Router";
 import JoblyApi from "./api";
 
 function App(): JSX.Element {
-  //const [getToken, setToken] = useLocalStorage("token", {} as UserToken);
   const [userToken, setUserToken] = useState(() => {
     return window.localStorage.getItem("token");
   });

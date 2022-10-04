@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
 interface SignupProps {
   user: UserToken | null;
@@ -30,6 +30,8 @@ function Signup({ user, register }: SignupProps): JSX.Element {
   };
 
   console.log(user);
+
+  if (user) return <Navigate to="/" />;
 
   return (
     <form onSubmit={handleSubmit}>

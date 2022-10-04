@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
 interface LoginProps {
   user: UserToken | null;
@@ -28,6 +28,8 @@ function Login({ user, login }: LoginProps): JSX.Element {
       [name]: value,
     }));
   };
+
+  if (user) return <Navigate to="/" />;
   return (
     <form onSubmit={handleSubmit}>
       <input
