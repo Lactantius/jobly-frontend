@@ -6,7 +6,7 @@ import JoblyApi from "./api";
 import CompanySearch from "./CompanySearch";
 
 interface CompanyListProps {
-  user: User | null;
+  user: UserToken | null;
 }
 
 function CompanyList({ user }: CompanyListProps): JSX.Element {

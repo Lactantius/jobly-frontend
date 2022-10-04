@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 interface NavBarProps {
-  user: User | null;
+  user: UserToken | null;
 }
 
 function NavBar({ user }: NavBarProps): JSX.Element {

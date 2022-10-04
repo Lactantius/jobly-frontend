@@ -1,7 +1,7 @@
 import React from "react";
 
 interface HomeProps {
-  user: User | null;
+  user: UserToken | null;
 }
 
 function Home({ user }: HomeProps): JSX.Element {

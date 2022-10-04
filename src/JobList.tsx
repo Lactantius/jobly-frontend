@@ -5,7 +5,7 @@ import JoblyApi from "./api";
 import JobSearch from "./JobSearch";
 
 interface JobProps {
-  user: User | null;
+  user: UserToken | null;
 }
 
 function JobList({ user }: JobProps): JSX.Element {

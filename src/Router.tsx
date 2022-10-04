@@ -12,7 +12,7 @@ import Profile from "./Profile";
 interface RouterProps {
   login: Function;
   register: Function;
-  user: User | null;
+  user: UserToken | null;
 }
 
 function Router({ login, register, user }: RouterProps): JSX.Element {

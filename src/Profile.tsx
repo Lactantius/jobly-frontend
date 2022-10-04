@@ -1,7 +1,7 @@
 import React from "react";
 
 interface ProfileProps {
-  user: User | null;
+  user: UserToken | null;
 }
 
 function Profile({ user }: ProfileProps): JSX.Element {

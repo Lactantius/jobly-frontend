@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 interface SignupProps {
-  user: User | null;
+  user: UserToken | null;
   register: Function;
 }
 
@@ -28,6 +28,8 @@ function Signup({ user, register }: SignupProps): JSX.Element {
       [name]: value,
     }));
   };
+
+  console.log(user);
 
   return (
     <form onSubmit={handleSubmit}>

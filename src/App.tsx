@@ -1,35 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter } from "react-router-dom";
 import jwt from "jsonwebtoken";
 
 import NavBar from "./NavBar";
-import { useLocalStorage } from "./hooks";
 import "./App.css";
 
 import Router from "./Router";
 import JoblyApi from "./api";
 
 function App(): JSX.Element {
-  const [token, setToken] = useLocalStorage("token", {} as User);
+  //const [getToken, setToken] = useLocalStorage("token", {} as UserToken);
+  const [userToken, setUserToken] = useState(() => {
+    return window.localStorage.getItem("token");
+  });
 
-  const login = async (username: string, password: string) => {
-    const authToken = await JoblyApi.login(username, password);
-    setToken(authToken);
+  const setToken = (token: string) => {
+    setUserToken(token);
+    window.localStorage.setItem("token", token);
+  };
+
+  const getUser = () => {
+    return userToken ? (jwt.decode(userToken) as UserToken) : null;
+  };
+
+  const login = async (loginData: LoginFormVals) => {
+    const authToken = await JoblyApi.login(loginData);
+    setToken(authToken.token);
+    console.log("token: ", userToken);
+    return userToken;
   };
 
   const register = async (signupData: SignupFormVals) => {
     const authToken = await JoblyApi.register(signupData);
-    setToken(authToken);
-    return token as User;
+    setToken(authToken.token);
+    return userToken;
   };
 
-  const logout = () => setToken({});
-
-  const getUser = () => {
-    const payload = jwt.decode(token);
-    if (typeof payload === "string") return JSON.parse(payload) as User;
-    return null;
-  };
+  const logout = () => setToken("");
 
   return (
     <BrowserRouter>

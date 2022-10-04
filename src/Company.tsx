@@ -6,7 +6,7 @@ import JoblyApi from "./api";
 import JobCard from "./JobCard";
 
 interface CompanyProps {
-  user: User | null;
+  user: UserToken | null;
 }
 
 function Company({ user }: CompanyProps): JSX.Element {

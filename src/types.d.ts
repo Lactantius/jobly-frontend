@@ -41,6 +41,12 @@ interface User {
   isAdmin: boolean;
 }
 
+interface UserToken {
+  username: string;
+  isAdmin: boolean;
+  iat: number;
+}
+
 interface SignupFormVals {
   username: string;
   password: string;
@@ -48,4 +54,9 @@ interface SignupFormVals {
   email: string;
   firstName: string;
   lastName: string;
+}
+
+interface LoginFormVals {
+  username: string;
+  password: string;
 }
