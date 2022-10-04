@@ -23,9 +23,10 @@ function App(): JSX.Element {
     window.localStorage.setItem("token", token);
   };
 
-  const setUserAndStorage = (user: User) => {
+  const setUserAndStorage = (user: User | null) => {
     setUser(user);
-    window.localStorage.setItem("user", JSON.stringify(user));
+    const stringified = user ? JSON.stringify(user) : "";
+    window.localStorage.setItem("user", stringified);
   };
 
   const getUser = () => {
@@ -44,19 +45,36 @@ function App(): JSX.Element {
 
   const register = async (signupData: SignupFormVals) => {
     const authToken = await JoblyApi.register(signupData);
+    const userData = await JoblyApi.getUserInfo({
+      username: signupData.username,
+      token: authToken.token,
+    });
     setTokenAndStorage(authToken.token);
+    setUserAndStorage(userData);
     return userToken;
   };
 
   const logout = () => {
     setTokenAndStorage("");
-    setUserAndStorage({} as User);
+    setUserAndStorage(null);
+  };
+
+  const updateUser = async (userData: ProfileFormVals) => {
+    if (userToken) {
+      const res = await JoblyApi.updateUser(userData, userToken);
+      setUserAndStorage(res);
+    }
   };
 
   return (
     <BrowserRouter>
       <NavBar user={getUser()} logout={logout} />
-      <Router login={login} register={register} user={user} />
+      <Router
+        user={user}
+        login={login}
+        register={register}
+        updateUser={updateUser}
+      />
     </BrowserRouter>
   );
 }

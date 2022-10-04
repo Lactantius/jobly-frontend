@@ -61,6 +61,14 @@ interface LoginFormVals {
   password: string;
 }
 
+interface ProfileFormVals {
+  username: string;
+  password: string;
+  email: string;
+  firstName: string;
+  lastName: string;
+}
+
 interface UserCredentials {
   username: string;
   token: string;

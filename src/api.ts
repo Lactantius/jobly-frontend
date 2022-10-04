@@ -114,6 +114,22 @@ class JoblyApi {
     });
     return data.user;
   }
+
+  static async updateUser(
+    { username, firstName, lastName, email }: ProfileFormVals,
+    token: string
+  ): Promise<User> {
+    const { data } = await axios.patch(
+      `${BASE_URL}/users/${username}`,
+      {
+        email,
+        firstName,
+        lastName,
+      },
+      { headers: { Authorization: `Bearer ${token}` } }
+    );
+    return data;
+  }
 }
 
 // for now, put token ("testuser" / "password" on class)

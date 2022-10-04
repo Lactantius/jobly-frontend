@@ -10,12 +10,18 @@ import Signup from "./Signup";
 import Profile from "./Profile";
 
 interface RouterProps {
+  user: User | null;
   login: Function;
   register: Function;
-  user: User | null;
+  updateUser: Function;
 }
 
-function Router({ login, register, user }: RouterProps): JSX.Element {
+function Router({
+  login,
+  register,
+  user,
+  updateUser,
+}: RouterProps): JSX.Element {
   return (
     <Routes>
       <Route path="/" element={<Home user={user} />} />
@@ -27,7 +33,10 @@ function Router({ login, register, user }: RouterProps): JSX.Element {
         path="/signup"
         element={<Signup register={register} user={user} />}
       />
-      <Route path="/profile" element={<Profile user={user} />} />
+      <Route
+        path="/profile"
+        element={<Profile user={user} updateUser={updateUser} />}
+      />
     </Routes>
   );
 }
