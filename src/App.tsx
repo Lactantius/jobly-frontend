@@ -72,6 +72,7 @@ function App(): JSX.Element {
         <NavBar user={getUser()} logout={logout} />
         <Router
           user={user}
+          token={userToken}
           login={login}
           register={register}
           updateUser={updateUser}

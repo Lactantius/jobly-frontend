@@ -7,9 +7,10 @@ import "./Company.css";
 
 interface CompanyProps {
   user: User | null;
+  token: string | null;
 }
 
-function Company({ user }: CompanyProps): JSX.Element {
+function Company({ user, token }: CompanyProps): JSX.Element {
   const { handle } = useParams();
 
   const [company, setCompany] = useState<CompanyDetail>({} as CompanyDetail);
@@ -25,6 +26,8 @@ function Company({ user }: CompanyProps): JSX.Element {
 
   if (!user) return <Navigate to="/" />;
 
+  console.log(user);
+
   console.debug("Company", "company=", company);
   return (
     <React.StrictMode>
@@ -34,7 +37,7 @@ function Company({ user }: CompanyProps): JSX.Element {
         <p>Employees: {company.numEmployees}</p>
         <h2>Jobs:</h2>
         {company.jobs.map((job) => (
-          <JobCard job={job} />
+          <JobCard job={job} user={user} token={token!} />
         ))}
       </div>
     </React.StrictMode>

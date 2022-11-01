@@ -14,6 +14,15 @@ interface GetJobsResponse {
   jobs: Job[];
 }
 
+interface JobApplication {
+  username: string;
+  jobId: string;
+}
+
+interface JobApplicationRes {
+  applied: string;
+}
+
 interface TokenResponse {
   token: string;
 }
@@ -130,6 +139,19 @@ class JoblyApi {
         firstName,
         lastName,
       },
+      { headers: { Authorization: `Bearer ${token}` } }
+    );
+    return data.user;
+  }
+
+  static async apply(
+    { username, jobId }: JobApplication,
+    token: string
+  ): Promise<JobApplicationRes> {
+    console.log("TOKEN");
+    console.log(token);
+    const { data } = await axios.post(
+      `${BASE_URL}/users/${username}/jobs/${jobId}`,
       { headers: { Authorization: `Bearer ${token}` } }
     );
     return data;

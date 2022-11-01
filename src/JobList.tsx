@@ -8,9 +8,10 @@ import "./JobList.css";
 
 interface JobProps {
   user: User | null;
+  token: string | null;
 }
 
-function JobList({ user }: JobProps): JSX.Element {
+function JobList({ user, token }: JobProps): JSX.Element {
   const [jobs, setJobs] = useState(Array<Job>);
   const [filters, setFilters] = useState({} as JobFilters);
 
@@ -29,7 +30,7 @@ function JobList({ user }: JobProps): JSX.Element {
       <div className="JobList-list">
         <h2>{jobs.length} Jobs</h2>
         {jobs.map((job) => {
-          return <JobCard key={job.id} job={job} />;
+          return <JobCard key={job.id} job={job} user={user} token={token!} />;
         })}
       </div>
     </div>

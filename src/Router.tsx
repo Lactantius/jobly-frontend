@@ -14,20 +14,25 @@ interface RouterProps {
   login: Function;
   register: Function;
   updateUser: Function;
+  token: string | null;
 }
 
 function Router({
   login,
   register,
   user,
+  token,
   updateUser,
 }: RouterProps): JSX.Element {
   return (
     <Routes>
       <Route path="/" element={<Home user={user} />} />
       <Route path="/companies" element={<CompanyList user={user} />} />
-      <Route path="/companies/:handle" element={<Company user={user} />} />
-      <Route path="/jobs" element={<JobList user={user} />} />
+      <Route
+        path="/companies/:handle"
+        element={<Company user={user} token={token} />}
+      />
+      <Route path="/jobs" element={<JobList user={user} token={token} />} />
       <Route path="/login" element={<Login login={login} user={user} />} />
       <Route
         path="/signup"

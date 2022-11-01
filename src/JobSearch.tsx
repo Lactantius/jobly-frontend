@@ -14,8 +14,7 @@ function JobSearch({ setFilters }: JobSearchProps): JSX.Element {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const filters = { ...formData, hasEquity: !!isChecked };
-    //setFormData({ ...formData, hasEquity: !!isChecked });
+    const filters = { ...formData, hasEquity: !!isChecked }; // Fixes bug where hasEquity = "on"
     setFilters(filters);
   };
 

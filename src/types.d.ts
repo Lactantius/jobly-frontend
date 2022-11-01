@@ -39,6 +39,7 @@ interface User {
   lastName: string;
   email: string;
   isAdmin: boolean;
+  applications: Job[];
 }
 
 interface UserToken {
