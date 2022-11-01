@@ -12,7 +12,7 @@ interface CompanyProps {
 function Company({ user }: CompanyProps): JSX.Element {
   const { handle } = useParams();
 
-  const [company, setCompany] = useState({} as CompanyDetail);
+  const [company, setCompany] = useState<CompanyDetail>({} as CompanyDetail);
 
   useEffect(() => {
     JoblyApi.getCompany(handle!).then((data) => {

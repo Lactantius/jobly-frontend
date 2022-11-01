@@ -2,6 +2,10 @@ import axios from "axios";
 
 const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
 
+interface GetCompanyResponse {
+  company: CompanyDetail;
+}
+
 interface GetCompaniesResponse {
   companies: Company[];
 }
@@ -26,11 +30,11 @@ class JoblyApi {
   // the token for interaction with the API will be stored here.
   static token: string;
 
-  static async request(
+  static async request<T>(
     endpoint: string,
     data = {},
     method = "get"
-  ): Promise<any> {
+  ): Promise<T> {
     console.debug("API Call:", endpoint, data, method);
 
     //there are multiple ways to pass an authorization token, this is how you pass it in the header.
@@ -52,8 +56,8 @@ class JoblyApi {
 
   /** Get details on a company by handle. */
 
-  static async getCompany(handle: string): Promise<any> {
-    const res = await this.request(`companies/${handle}`);
+  static async getCompany(handle: string): Promise<CompanyDetail> {
+    const res = await this.request<GetCompanyResponse>(`companies/${handle}`);
     return res.company;
   }
 

@@ -67,15 +67,17 @@ function App(): JSX.Element {
   };
 
   return (
-    <BrowserRouter>
-      <NavBar user={getUser()} logout={logout} />
-      <Router
-        user={user}
-        login={login}
-        register={register}
-        updateUser={updateUser}
-      />
-    </BrowserRouter>
+    <div className="App">
+      <BrowserRouter>
+        <NavBar user={getUser()} logout={logout} />
+        <Router
+          user={user}
+          login={login}
+          register={register}
+          updateUser={updateUser}
+        />
+      </BrowserRouter>
+    </div>
   );
 }
 
