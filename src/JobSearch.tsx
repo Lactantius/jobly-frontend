@@ -10,12 +10,13 @@ type FilterKeys = "title" | "minSalary" | "hasEquity";
 
 function JobSearch({ setFilters }: JobSearchProps): JSX.Element {
   const [formData, setFormData] = useState({} as JobFilters);
-  const [isChecked, setIsChecked] = useState(false);
+  const [isChecked, setIsChecked] = useState<boolean>(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setFormData({ ...formData, hasEquity: isChecked });
-    setFilters(formData);
+    const filters = { ...formData, hasEquity: !!isChecked };
+    //setFormData({ ...formData, hasEquity: !!isChecked });
+    setFilters(filters);
   };
 
   const handleChange = (e: React.ChangeEvent) => {
