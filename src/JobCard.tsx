@@ -12,7 +12,7 @@ function JobCard({ job }: JobProps): JSX.Element {
     <div className="JobCard">
       <h3>{job.title}</h3>
       <p>
-        Salary: {job.salary}; Equity: {job.equity}
+        Salary: {job.salary}; Equity: {job.equity ?? 0}
       </p>
     </div>
   );

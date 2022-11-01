@@ -14,6 +14,7 @@ function JobSearch({ setFilters }: JobSearchProps): JSX.Element {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    setFormData({ ...formData, hasEquity: isChecked });
     setFilters(formData);
   };
 
@@ -26,7 +27,6 @@ function JobSearch({ setFilters }: JobSearchProps): JSX.Element {
     }
     setFormData((fData) => {
       fData = { ...fData, [name]: value };
-      fData["hasEquity"] = !isChecked;
       if (!fData[name]) delete fData[name];
       return fData;
     });
