@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Navigate, useParams } from "react-router-dom";
 
 import JoblyApi from "./api";
-
 import JobCard from "./JobCard";
+import "./Company.css";
 
 interface CompanyProps {
   user: User | null;
@@ -29,10 +29,10 @@ function Company({ user }: CompanyProps): JSX.Element {
   return (
     <React.StrictMode>
       <div className="Company">
-        <h2>{company.name}</h2>
+        <h1>{company.name}</h1>
         <p>{company.description}</p>
         <p>Employees: {company.numEmployees}</p>
-        <h3>Jobs:</h3>
+        <h2>Jobs:</h2>
         {company.jobs.map((job) => (
           <JobCard job={job} />
         ))}

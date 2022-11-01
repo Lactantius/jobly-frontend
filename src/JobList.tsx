@@ -4,6 +4,7 @@ import JobCard from "./JobCard";
 import JoblyApi from "./api";
 import JobSearch from "./JobSearch";
 import { Navigate } from "react-router-dom";
+import "./JobList.css";
 
 interface JobProps {
   user: User | null;
@@ -23,11 +24,14 @@ function JobList({ user }: JobProps): JSX.Element {
 
   return (
     <div className="JobList">
+      <h1>Jobs</h1>
       <JobSearch setFilters={setFilters} />
-      <h2>{jobs.length} Jobs</h2>
-      {jobs.map((job) => {
-        return <JobCard key={job.id} job={job} />;
-      })}
+      <div className="JobList-list">
+        <h2>{jobs.length} Jobs</h2>
+        {jobs.map((job) => {
+          return <JobCard key={job.id} job={job} />;
+        })}
+      </div>
     </div>
   );
 }

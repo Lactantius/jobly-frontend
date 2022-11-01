@@ -1,0 +1,13 @@
+.Company {
+  font-size: 1.2rem;
+  max-width: 30rem;
+  margin: 3rem auto auto auto;
+}
+
+.Company h1 {
+  font-size: 3rem;
+}
+
+.Company h2 {
+  margin-top: 3rem;
+}

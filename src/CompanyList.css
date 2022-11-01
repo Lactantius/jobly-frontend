@@ -1,0 +1,16 @@
+.CompanyList {
+  margin-top: 3rem;
+}
+
+.CompanyList h1 {
+  font-size: 3rem;
+}
+
+.CompanyList-list {
+  margin-top: 4rem;
+}
+
+.CompanyList-list h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}

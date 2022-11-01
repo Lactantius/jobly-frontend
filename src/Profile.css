@@ -1,0 +1,42 @@
+.Profile {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.Profile h1 {
+  font-size: 3rem;
+}
+
+.Profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 24rem;
+  margin: auto;
+  text-align: left;
+}
+
+.Profile-form div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.Profile-form input {
+  font-size: 1.5rem;
+  padding: 0.5rem;
+}
+
+.Profile-form label {
+  font-size: 1.2rem;
+}
+
+.Profile-form button {
+  font-size: 1.4rem;
+  background-color: #2858bb;
+  color: white;
+  padding: 0.8rem;
+  border-radius: 5px;
+}

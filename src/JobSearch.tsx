@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import "./JobSearch.css";
+
 interface JobSearchProps {
   setFilters: Function;
 }
@@ -31,26 +33,34 @@ function JobSearch({ setFilters }: JobSearchProps): JSX.Element {
   };
 
   return (
-    <form className="JobSearch" onSubmit={handleSubmit}>
-      <label htmlFor="title">Title</label>
-      <input type="text" id="title" name="title" onChange={handleChange} />
-      <label htmlFor="minSalary">Minimum Salary</label>
-      <input
-        type="number"
-        id="minSalary"
-        name="minSalary"
-        onChange={handleChange}
-      />
-      <label htmlFor="hasEquity">Equity Required?</label>
-      <input
-        type="checkbox"
-        id="hasEquity"
-        name="hasEquity"
-        checked={isChecked}
-        onChange={handleChange}
-      />
-      <button>Search</button>
-    </form>
+    <div className="JobSearch">
+      <form className="JobSearch-form" onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="title">Title</label>
+          <input type="text" id="title" name="title" onChange={handleChange} />
+        </div>
+        <div>
+          <label htmlFor="minSalary">Minimum Salary</label>
+          <input
+            type="number"
+            id="minSalary"
+            name="minSalary"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="JobSearch-checkbox">
+          <label htmlFor="hasEquity">Equity Required?</label>
+          <input
+            type="checkbox"
+            id="hasEquity"
+            name="hasEquity"
+            checked={isChecked}
+            onChange={handleChange}
+          />
+        </div>
+        <button>Search</button>
+      </form>
+    </div>
   );
 }
 

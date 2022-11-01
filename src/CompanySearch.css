@@ -1,0 +1,43 @@
+.CompanySearch {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.CompanySearch h2 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.CompanySearch-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 24rem;
+  margin: auto;
+  text-align: left;
+}
+
+.CompanySearch-form div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.CompanySearch-form input {
+  font-size: 1.2rem;
+  padding: 0.4rem;
+}
+
+.CompanySearch-form label {
+  font-size: 1.2rem;
+}
+
+.CompanySearch-form button {
+  font-size: 1.4rem;
+  background-color: #2858bb;
+  color: white;
+  padding: 0.8rem;
+  border-radius: 5px;
+}

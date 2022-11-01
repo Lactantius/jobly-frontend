@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import "./CompanySearch.css";
+
 interface CompanySearchProps {
   setFilters: Function;
 }
@@ -26,25 +28,34 @@ function CompanySearch({ setFilters }: CompanySearchProps): JSX.Element {
   };
 
   return (
-    <form className="CompanySearch" onSubmit={handleSubmit}>
-      <label htmlFor="name">Name</label>
-      <input type="text" id="name" name="name" onChange={handleChange} />
-      <label htmlFor="minEmployees">Minimum Employees</label>
-      <input
-        type="number"
-        id="minEmployees"
-        name="minEmployees"
-        onChange={handleChange}
-      />
-      <label htmlFor="maxEmployees">Maximum Employees</label>
-      <input
-        type="number"
-        id="maxEmployees"
-        name="maxEmployees"
-        onChange={handleChange}
-      />
-      <button>Search</button>
-    </form>
+    <div className="CompanySearch">
+      <h2>Search</h2>
+      <form className="CompanySearch-form" onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="name">Name</label>
+          <input type="text" id="name" name="name" onChange={handleChange} />
+        </div>
+        <div>
+          <label htmlFor="minEmployees">Minimum Employees</label>
+          <input
+            type="number"
+            id="minEmployees"
+            name="minEmployees"
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="maxEmployees">Maximum Employees</label>
+          <input
+            type="number"
+            id="maxEmployees"
+            name="maxEmployees"
+            onChange={handleChange}
+          />
+        </div>
+        <button>Search</button>
+      </form>
+    </div>
   );
 }
 

@@ -1,0 +1,16 @@
+.JobList {
+  margin-top: 3rem;
+}
+
+.JobList h1 {
+  font-size: 3rem;
+}
+
+.JobList-list {
+  margin-top: 4rem;
+}
+
+.JobList-list h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}

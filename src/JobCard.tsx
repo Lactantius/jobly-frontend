@@ -1,6 +1,7 @@
 import React from "react";
 
 import JoblyApi from "./api";
+import "./JobCard.css";
 
 interface JobProps {
   job: Job;

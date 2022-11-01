@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Navigate } from "react-router-dom";
 
 import CompanyCard from "./CompanyCard";
-
 import JoblyApi from "./api";
 import CompanySearch from "./CompanySearch";
+import "./CompanyList.css";
 
 interface CompanyListProps {
   user: User | null;
@@ -24,13 +24,14 @@ function CompanyList({ user }: CompanyListProps): JSX.Element {
 
   return (
     <div className="CompanyList">
-      <>
-        <CompanySearch setFilters={setFilters} />
+      <h1>Companies</h1>
+      <CompanySearch setFilters={setFilters} />
+      <div className="CompanyList-list">
         <h2>{companies.length} Companies</h2>
         {companies.map((company) => {
           return <CompanyCard key={company.handle} company={company} />;
         })}
-      </>
+      </div>
     </div>
   );
 }
