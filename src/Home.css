@@ -1,0 +1,23 @@
+.Home {
+  margin-top: 6rem;
+}
+
+.Home h1 {
+  font-size: 3rem;
+}
+
+.Home-buttons {
+  margin-top: 3rem;
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+}
+
+.Home-buttons a {
+  background-color: #2858bb;
+  color: white;
+  padding: 0.8rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
