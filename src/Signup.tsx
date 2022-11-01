@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 
+import "./Signup.css";
+
 interface SignupProps {
   user: User | null;
   register: Function;
@@ -34,51 +36,72 @@ function Signup({ user, register }: SignupProps): JSX.Element {
   if (user) return <Navigate to="/" />;
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        name="username"
-        id="username"
-        placeholder="Username"
-        onChange={handleChange}
-      />
-      <input
-        type="text"
-        name="firstName"
-        id="firstName"
-        placeholder="First Name"
-        onChange={handleChange}
-      />
-      <input
-        type="text"
-        name="lastName"
-        id="lastName"
-        placeholder="Last Name"
-        onChange={handleChange}
-      />
-      <input
-        type="email"
-        name="email"
-        id="email"
-        placeholder="address@example.com"
-        onChange={handleChange}
-      />
-      <input
-        type="password"
-        name="password"
-        id="password"
-        placeholder="Password"
-        onChange={handleChange}
-      />
-      <input
-        type="password"
-        name="confirmPassword"
-        id="confirmPassword"
-        placeholder="Confirm password"
-        onChange={handleChange}
-      />
-      <button>Sign up</button>
-    </form>
+    <div className="Signup">
+      <h1>Signup</h1>
+      <form className="Signup-form" onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="username">Username</label>
+          <input
+            type="text"
+            name="username"
+            id="username"
+            placeholder="Username"
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="firstName">First Name</label>
+          <input
+            type="text"
+            name="firstName"
+            id="firstName"
+            placeholder="First Name"
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="lastName">Last Name</label>
+          <input
+            type="text"
+            name="lastName"
+            id="lastName"
+            placeholder="Last Name"
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="email">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="address@example.com"
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Password"
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="confirmPassword">Confirm Password</label>
+          <input
+            type="password"
+            name="confirmPassword"
+            id="confirmPassword"
+            placeholder="Confirm password"
+            onChange={handleChange}
+          />
+        </div>
+        <button onSubmit={handleSubmit}>Sign up</button>
+      </form>
+    </div>
   );
 }
 

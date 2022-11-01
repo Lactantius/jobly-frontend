@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 
+import "./Login.css";
+
 interface LoginProps {
   user: User | null;
   login: Function;
@@ -31,23 +33,32 @@ function Login({ user, login }: LoginProps): JSX.Element {
 
   if (user) return <Navigate to="/" />;
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        id="username"
-        name="username"
-        onChange={handleChange}
-        placeholder="username"
-      />
-      <input
-        type="password"
-        id="password"
-        name="password"
-        onChange={handleChange}
-        placeholder="password"
-      />
-      <button>Log in</button>
-    </form>
+    <div className="Login">
+      <h1>Login</h1>
+      <form className="Login-form" onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="username">Username</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            onChange={handleChange}
+            placeholder="username"
+          />
+        </div>
+        <div>
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            onChange={handleChange}
+            placeholder="password"
+          />
+        </div>
+        <button onSubmit={handleSubmit}>Log in</button>
+      </form>
+    </div>
   );
 }
 

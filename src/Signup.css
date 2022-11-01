@@ -1,0 +1,42 @@
+.Signup {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.Signup h1 {
+  font-size: 3rem;
+}
+
+.Signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 24rem;
+  margin: auto;
+  text-align: left;
+}
+
+.Signup-form div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.Signup-form input {
+  font-size: 1.5rem;
+  padding: 0.5rem;
+}
+
+.Signup-form label {
+  font-size: 1.2rem;
+}
+
+.Signup-form button {
+  font-size: 1.4rem;
+  background-color: #2858bb;
+  color: white;
+  padding: 0.8rem;
+  border-radius: 5px;
+}
